@@ -1,7 +1,7 @@
 package by.astakhnovich.threads.synchro;
 
 public class ThreadSynchronized {
-    public static Integer i = 0;
+    public static volatile Integer i = 0;
 
     public static void main(String[] args) {
         Runnable runnable1 = () -> {
@@ -37,8 +37,7 @@ public class ThreadSynchronized {
         th4.start();
     }
 
-    public static Integer incr(){
-        i += 1;
-        return i;
+    public static synchronized Integer incr(){
+        return i++;
     }
 }
